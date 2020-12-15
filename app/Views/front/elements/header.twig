@@ -3,17 +3,19 @@
    <div class="header-container">
       <nav class="topbar">
          <div class="container">
-            <p> {{ options.tagline }} 
-               <span dir='ltr' style='letter-spacing: 1px;'> {{ options.phone }}</span> 
-            </p>
+            <p>{{ options.tagline }}</p>
          </div>
       </nav>
       <header class="app-header search-active">
          <div class="main-bar desktop-bar" style="background-color: #ffffff;border-bottom: 1px solid #00000000;height: 100px;">
             <div class="container">
-               <div class="header-left" >
+               <div class="header-left">
                   <div class="header-element">
-                     <a id="search-icon" type="submit" class="search-submit"><i class="fa fa-search"></i></a>
+                     <a class="header-brand" href="/">
+                     <img src="/uploads/media/{{ options.logo }}" alt=""/>
+                     </a>
+                  </div>
+                  <div class="header-element">
                   </div>
                </div>
                <div class="header-center">
@@ -21,7 +23,7 @@
                      <ul class="list-unstyled header-list">
                         <li>
                            <a href="/" style="color:#000000">
-                           الرئيسية
+                           Acceuil
                            </a>
                         </li>
                         {% for item in ALLCATEGORIES %}
@@ -34,13 +36,9 @@
                      </ul>
                   </div>
                </div>
-               <div class="header-right">
+               <div class="header-right" >
                   <div class="header-element">
-                     <a class="header-brand" href="/">
-                     <img src="/uploads/media/{{ options.logo }}" alt=""/>
-                     </a>
-                  </div>
-                  <div class="header-element">
+                     <a id="search-icon" type="submit" class="search-submit"><i class="fa fa-search"></i></a>
                   </div>
                </div>
             </div>

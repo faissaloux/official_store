@@ -20,7 +20,9 @@ use \App\Controllers\ProductsCategoriesController as productscats  ;
 defined('BASEPATH') or exit('No direct script access allowed');
 
 
-
+$app->get('/contactez-nous', Web::class.':contactUs')->setName('website.contactUs');
+$app->get('/politique-de-livraison', Web::class.':shippingPolicies')->setName('website.shippingPolicies');
+$app->get('/politique-de-retour', Web::class.':returnPolicies')->setName('website.returnPolicies');
 
 
 

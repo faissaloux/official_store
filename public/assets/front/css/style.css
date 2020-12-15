@@ -5789,7 +5789,8 @@ img {
 }
 
 [dir] .product-item .product-title {
-    margin: 0 0 10px
+    margin: 0 0 10px;
+    height: 40px;
 }
 
 .product-item .product-title a {
@@ -5852,8 +5853,9 @@ img {
 
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 25px
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 25px;
+    margin-bottom: 20px;
 }
 
 @media (max-width:425px) {

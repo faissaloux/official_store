@@ -2,7 +2,7 @@
 
 
 
-define('SCRIPTURL','http://asafar.local/');
+define('SCRIPTURL','http://official_store.test/');
 define('SCRIPTDIR', BASEPATH.'/');
 
 
@@ -19,7 +19,7 @@ return  [
     'db_live' => [
         'driver'             => 'mysql',
         'host'               => 'localhost',
-        'name'               => 'asafar',
+        'name'               => 'asma',
         'username'           => 'root',
         'password'           => '',
         'charset'            => 'utf8',

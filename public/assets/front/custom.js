@@ -31,7 +31,6 @@
 if($('body').hasClass('product-single')){
 
 	var later = $('#laterDate').val();
-	
 	$(function () {
            setInterval(function () {
                 var currentDate = new Date().getTime();

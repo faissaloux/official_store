@@ -19,7 +19,7 @@ class WebController extends Controller {
             $products = Product::where('name','Like','%'.$search.'%')->orWhere('name','Like','%'.$search.'%')
             ->orderBy('created_at','DESC')->get()->toArray();;
         }else {
-           $products = Product::orderBy('created_at','DESC')->get()->toArray(); 
+           $products = Product::orderBy('created_at','DESC')->paginate(6); 
         }
 
         $sliders = Slider::all()->toArray();
@@ -137,6 +137,19 @@ class WebController extends Controller {
        
        
       return  $response->withRedirect($this->router->pathFor('pixels'));
+    }
+
+    public function contactUs($request, $response){
+        return $this->view->render($response, 'front/contact-us.twig');
+    }
+
+    public function shippingPolicies($request, $response){
+        return $this->view->render($response, 'front/shipping-policies.twig');
+        // return $this->view->render('front/shipping-policies.twig');
+    }
+
+    public function returnPolicies($request, $response){
+        return $this->view->render($response, 'front/return-policies.twig');
     }
 
 
