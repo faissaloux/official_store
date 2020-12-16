@@ -172,7 +172,6 @@ class ProductsController extends Controller{
             // get the product id
             $id = rtrim($args['id'], '/');
             $product = Product::find($id);
-            $product->colors = json_decode($product->colors);
 
             // show the edit page 
             if($request->getMethod() == 'GET'){ 
@@ -210,7 +209,7 @@ class ProductsController extends Controller{
             $content->categoryID       =  $post['category'];
             $content->size       =  $post['size']  ?? '';
             $content->color       =  $post['color'] ?? '';
-            $content->colors       =  json_encode($post['colors']) ?? '';
+            $content->colors       =  $post['colors'] ? json_encode($post['colors']) : NULL;
             empty($post['line']) ? $content->line = '0'
                                  : $content->line = '1';
             $content->description       =  $request->getParam('description');

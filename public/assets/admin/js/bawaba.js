@@ -2151,7 +2151,15 @@ $('#submitaddembalage').click(function(e){
 });
 
 $("#add-color").click(()=>{
-  $(".clone").last().clone().appendTo(".colors-container");
+  const cloneExist = $(".clone").length;
+  if(cloneExist){
+    $(".clone").last().clone().appendTo(".colors-container");
+  } else {
+    $(`<div class="clone">
+          <div class="remove-color"><span class="close-symbol">x</span></div>
+          <input type="color" name="colors[]" value="{{ color }}" class="color-input"/>
+      </div>`).appendTo(".colors-container");
+  }
 })
 
 $(document).on('click', ".remove-color", function () {

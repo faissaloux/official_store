@@ -25,6 +25,9 @@ class Product extends model{
         return $this->belongsTo('\App\Models\ProductCategories','categoryID')->withDefault(['name'=> 'none']);
    }
    
+    public function currentColors(){
+        return json_decode($this->colors);
+    }
     
     
 }

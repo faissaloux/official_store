@@ -187,17 +187,12 @@ li.thumbnail-item img {
 		<div class="panel-body colors-body">
             <div class="colors-container">
             {%if product.colors|length %}
-                {% for color in product.colors %}
+                {% for color in product.currentColors() %}
                     <div class="clone">
-                        <div class="remove-color">x</div>
+                        <div class="remove-color"><span class="close-symbol">x</span></div>
                         <input type="color" name="colors[]" value="{{ color }}" class="color-input"/>
                     </div>
                 {% endfor %}
-            {% else %}
-                <div class="clone">
-                    <div class="remove-color"><span class="close-symbol">x</span></div>
-                    <input type="color" name="colors[]" value="{{ color }}" class="color-input"/>
-                </div>
             {% endif %}
             
             </div>

@@ -441,6 +441,8 @@ p.thank-you-body {
     width: 40px;
     border: 1px #000 solid;
     margin-right: 10px;
+    border: none;
+    cursor: pointer;
 }
 
 .versions {

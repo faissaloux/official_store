@@ -47,15 +47,16 @@ class='product-single'
                         <span class="before currency-value"><span class="value"> {{ product.price }} </span><span class="currency">&nbsp;DH‏</span></span>
                      </h3>
                   </div>
-                  <div class="choose-color">
-                     <h4>Choisissez votre couverture</h4>
-                     <div class="colors-container">
-                        <div class="color"></div>
-                        <div class="color"></div>
-                        <div class="color"></div>
-                        <div class="color"></div>
+                  {%if product.colors|length %}
+                     <div class="choose-color">
+                        <h4>Choisissez votre couverture</h4>
+                        <div class="colors-container">
+                        {% for color in product.currentColors() %}
+                           <div class="color" style="background-color:{{ color }};"></div>
+                        {% endfor %}
+                        </div>
                      </div>
-                  </div>
+                  {% endif %}
                   <div class="versions">
                      <div class="version">
                         <p>Version avec ligne</p>
