@@ -148,28 +148,25 @@ $('body #close_cmd').click(function(){
 
 
 $('.single-submit').click(function(){
-  
-  var product = $(this).attr('data-product');
-  var color = $(this).attr('data-color');
-  var size = $(this).attr('data-size');
-  
-  
-  if(color == 'on'){
-    $('body #product_color').show();
-  }else {
-    $('body #product_color').hide();  
-  }
+  const product = $(this).attr('data-product');
+  const quantity = $(this).attr('data-quantity');
+  const price = $(this).attr('data-price');
+  const colors = $(this).attr('data-colors');
+  const line = $(this).attr('data-version');
+  const size = $(this).attr('data-size');
   
    
   if(size == 'on'){
     $('#product_size').show();
   }else {
-    $('#product_size').hide();  
+    $('#product_size').hide();
   }
   
-  
-  
   $('#savecommand [name="idproduct"]').val(product);
+  $('#savecommand [name="quantity"]').val(quantity);
+  $('#savecommand [name="price"]').val(price);
+  $('#savecommand [name="colors"]').val(colors);
+  $('#savecommand [name="line"]').val(line);
   
   $('.cmd_wrapper').show();
   
@@ -304,3 +301,21 @@ $('body .owl-carousel2').owlCarousel( {
     }
   });
 
+$(".color").click(function(){
+  let activeColors = [];
+  $(this).toggleClass("active", "");
+  $.each($(".color.active"), function(){
+    activeColors.push($(this).data("color"));
+  });
+  $(".single-submit").attr("data-colors", activeColors);
+})
+
+$(".version").click(function(){
+  $(".version").removeClass("active");
+  $(this).toggleClass("active", "");
+  $(".single-submit").attr("data-version", $(this).data('line'));
+})
+
+$(".quantity-input").keyup(function(){
+  $(".single-submit").attr("data-quantity", $(this).val());
+})

@@ -445,6 +445,11 @@ p.thank-you-body {
     cursor: pointer;
 }
 
+.color.active,
+.version.active{
+    border: 4px solid #000;
+}
+
 .versions {
     display: flex;
     justify-content: space-between;
@@ -459,6 +464,10 @@ p.thank-you-body {
     line-height: 40px;
     text-align: center;
     cursor: pointer;
+}
+
+.version.active{
+    line-height: 32px;
 }
 
 .quantity {

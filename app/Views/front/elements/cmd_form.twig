@@ -9,11 +9,12 @@
           <label><input type="text" name="phone" placeholder="Numéro de téléphone"></label>
           <label><input type="text" name="city" placeholder="Ville de résidence"></label>
           <label><input type="text" name="address" placeholder="Adresse complète"></label>
-          <label id='product_color' style='display:none;'><input type="text" name="color" placeholder="اللون"></label>
-          <label id='product_size'  style='display:none;'><input type="text" name="size" placeholder="الحجم"></label>
+          <input type="hidden" name="colors">
+          <input type="hidden" name="line">
+          <input type="hidden" name="size">
           <input type="hidden" name="idproduct" value="{{ product.id }} ">
-          <input type="hidden" name="price" value=""  />
-          <input type="hidden" name="quantity" value=""   />
+          <input type="hidden" name="price"/>
+          <input type="hidden" name="quantity"/>
           <input type="submit" class="btn btn-block btn-submit" value="Confirmer votre commande" />
           <div class="message_alert"></div>
        </form>
