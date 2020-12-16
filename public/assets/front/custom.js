@@ -312,7 +312,7 @@ $(".color").click(function(){
 
 $(".version").click(function(){
   $(".version").removeClass("active");
-  $(this).toggleClass("active", "");
+  $(this).addClass("active");
   $(".single-submit").attr("data-version", $(this).data('line'));
 })
 
