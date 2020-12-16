@@ -88,6 +88,13 @@ li.thumbnail-item img {
                                     <input type="checkbox" class="form-control" name="show_home" {% if product.show_home == 'on' %}checked="checked" {% endif %}>
                                 </div>
                             </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-lg-2"> Ligne  </label>
+                                <div class="col-lg-10">
+                                    <input type="checkbox" class="form-control" name="line" {% if product.line == '1' %}checked="checked" {% endif %}>
+                                </div>
+                            </div>
                             
                         </fieldset>
                         
@@ -170,6 +177,33 @@ li.thumbnail-item img {
                 <option value="{{categorie.id}}">{{categorie.name}}</option>
                 {% endfor %} 
         </select>
+		</div>
+	</div>
+    <div class="panel panel-white">
+		<div class="panel-heading colors-head">
+			<h6 class="panel-title"> الألوان </h6>
+		</div>
+
+		<div class="panel-body colors-body">
+            <div class="colors-container">
+            {%if product.colors|length %}
+                {% for color in product.colors %}
+                    <div class="clone">
+                        <div class="remove-color">x</div>
+                        <input type="color" name="colors[]" value="{{ color }}" class="color-input"/>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="clone">
+                    <div class="remove-color"><span class="close-symbol">x</span></div>
+                    <input type="color" name="colors[]" value="{{ color }}" class="color-input"/>
+                </div>
+            {% endif %}
+            
+            </div>
+            <div class="add-color">
+                <div id="add-color">+</div>
+            </div>
 		</div>
 	</div>
 

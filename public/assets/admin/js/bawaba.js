@@ -2150,11 +2150,13 @@ $('#submitaddembalage').click(function(e){
   
 });
 
+$("#add-color").click(()=>{
+  $(".clone").last().clone().appendTo(".colors-container");
+})
 
-
-
-
-
+$(document).on('click', ".remove-color", function () {
+  $(this).parent(".clone").remove();
+})
 
 
 

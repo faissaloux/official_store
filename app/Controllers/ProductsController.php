@@ -32,8 +32,6 @@ class ProductsController extends Controller{
     
     public function create($request,$response){
        
-       
-       
         if( $request->getMethod() == 'GET')  { 
           
           $categories = ProductCategories::all();  
@@ -43,7 +41,7 @@ class ProductsController extends Controller{
         }
        
        
-        if($request->getMethod() == 'POST'){ 
+        if($request->getMethod() == 'POST'){
           
             $post   = clean($request->getParams());
                 
@@ -103,6 +101,10 @@ class ProductsController extends Controller{
             $content->categoryID       =  $post['category'];
             $content->size       =  $post['size']  ?? '';
             $content->color       =  $post['color'] ?? '';
+            $content->colors       =  json_encode($post['colors']) ?? '';
+            empty($post['line']) ? $content->line = '0'
+                                 : $content->line = '1';
+            
             $content->description       =  $request->getParam('description');
             
             
@@ -170,6 +172,7 @@ class ProductsController extends Controller{
             // get the product id
             $id = rtrim($args['id'], '/');
             $product = Product::find($id);
+            $product->colors = json_decode($product->colors);
 
             // show the edit page 
             if($request->getMethod() == 'GET'){ 
@@ -178,7 +181,6 @@ class ProductsController extends Controller{
             }
         
             if($request->getMethod() == 'POST'){
-
             $post  = clean($request->getParams());            
                 
             $content = $product;
@@ -208,6 +210,9 @@ class ProductsController extends Controller{
             $content->categoryID       =  $post['category'];
             $content->size       =  $post['size']  ?? '';
             $content->color       =  $post['color'] ?? '';
+            $content->colors       =  json_encode($post['colors']) ?? '';
+            empty($post['line']) ? $content->line = '0'
+                                 : $content->line = '1';
             $content->description       =  $request->getParam('description');
             $content->price_2       =  $post['price_2'];
             
