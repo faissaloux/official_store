@@ -303,7 +303,8 @@ $('body .owl-carousel2').owlCarousel( {
 
 $(".color").click(function(){
   let activeColors = [];
-  $(this).toggleClass("active", "");
+  $(".color").removeClass("active");
+  $(this).addClass("active");
   $.each($(".color.active"), function(){
     activeColors.push($(this).data("color"));
   });

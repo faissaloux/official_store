@@ -5,7 +5,7 @@
       {% for item in sliders %}
       <div class="slide">
          <img class="" src="{{url.sliders}}{{item.image}}" alt="slider-image" />
-         <a href="#" class="call-to-action">Découvrir</a>
+         <a href="{{ item.link }}" class="call-to-action">Découvrir</a>
       </div>
       {% endfor %}
    </section>
