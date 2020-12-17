@@ -448,6 +448,8 @@ p.thank-you-body {
 .version.active{
     border: 2px solid#ffe4db;
     background-color: transparent;
+    width: 400px;
+    transition-duration: 0.4s;
 }
 
 .versions {
@@ -464,6 +466,16 @@ p.thank-you-body {
     line-height: 40px;
     text-align: center;
     cursor: pointer;
+}
+
+.version,
+.color{
+    transition-duration: 0.4s;
+}
+
+.color.active{
+    transform: translateY(-10px);
+    transition-duration: 0.4s;
 }
 
 .version.active{
