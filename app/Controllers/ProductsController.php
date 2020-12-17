@@ -176,7 +176,7 @@ class ProductsController extends Controller{
             // show the edit page 
             if($request->getMethod() == 'GET'){ 
                 $categories = ProductCategories::all();  
-               return $this->view->render($response,'admin/products/edit.twig',compact('product','categories'));
+                return $this->view->render($response,'admin/products/edit.twig',compact('product','categories'));
             }
         
             if($request->getMethod() == 'POST'){
@@ -198,9 +198,6 @@ class ProductsController extends Controller{
                 $gallery  = $content->gallery;
             }
     
-    
-    
-        
             $content->thumbnail   =  $thumbnail;
             $content->name   =  $post['name'];
             $content->gallery     =  $gallery;
@@ -214,8 +211,6 @@ class ProductsController extends Controller{
                                  : $content->line = '1';
             $content->description       =  $request->getParam('description');
             $content->price_2       =  $post['price_2'];
-            
-
             
             if(empty($post['show_home'])){
                 $post['show_home'] = 'off';
@@ -232,9 +227,6 @@ class ProductsController extends Controller{
                 }
             }
            
-            
-            
-
             $content->show_home       =  $post['show_home'];
 
             $content->save();
@@ -244,8 +236,6 @@ class ProductsController extends Controller{
             return $response->withRedirect($this->router->pathFor('products'));
             
         }
-        
-        
         
     }
 
