@@ -133,7 +133,7 @@ li.thumbnail-item img {
 <label for="galleryImages" class="btn btn-danger btn-rounded"><i class="icon-image2 position-left"></i> اختيار الصور  </label>
 <input name="galleryImages[]" id="galleryImages" accept="image/jpg, image/jpeg, image/png" style="visibility:hidden;" type="file" multiple />
 
-         
+         {{ product.galleryimages }}
            {% for item in product.galleryimages %}
                                 <li class="thumbnail-item" >
                                     <img src="{{url.products}}{{item}}" />

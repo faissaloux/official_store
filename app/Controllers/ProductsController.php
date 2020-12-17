@@ -80,12 +80,12 @@ class ProductsController extends Controller{
             }else {
                 $thumbnail   = '';
             }
-          
-            if(!empty($_FILES['galleryImages'])){
+            if(!empty($_FILES['galleryImages']['name'][0])){
+                dd($_FILES['galleryImages']);
                  // dd($_FILES['ProductThumbnail']);
                 $gallery     = $this->uploadGallery($_FILES['galleryImages']);
             }else {
-                $gallery  = '';
+                $gallery  = NULL;
             }
     
             $content              = new Product;
