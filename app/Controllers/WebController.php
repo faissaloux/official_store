@@ -16,17 +16,22 @@ class WebController extends Controller {
 
         if(!empty($_GET['q'])){
             $search = $_GET['q'];
-            $products = Product::where('name','Like','%'.$search.'%')->orWhere('name','Like','%'.$search.'%')
-            ->orderBy('created_at','DESC')->get()->toArray();;
+            $latestProducts = Product::where('name','Like','%'.$search.'%')->orderBy('created_at', 'desc')->paginate(6);
+            $planners = Product::whereHas('planners')->with('planners')->where('name','Like','%'.$search.'%')->orderBy('created_at','DESC')->get()->toArray();
+            $accessories = Product::whereHas('accessories')->with('accessories')->where('name','Like','%'.$search.'%')->orderBy('created_at','DESC')->get()->toArray();
+            $stickersAndNotePads = Product::whereHas('stickersAndNotePads')->with('stickersAndNotePads')->where('name','Like','%'.$search.'%')->orderBy('created_at','DESC')->get()->toArray();
         }else {
-           $products = Product::orderBy('created_at','DESC')->paginate(6); 
+            $latestProducts = Product::orderBy('created_at', 'desc')->paginate(6);
+            $planners = Product::whereHas('planners')->with('planners')->orderBy('created_at','DESC')->paginate(6);
+            $accessories = Product::whereHas('accessories')->with('accessories')->orderBy('created_at','DESC')->paginate(6);
+            $stickersAndNotePads = Product::whereHas('stickersAndNotePads')->with('stickersAndNotePads')->orderBy('created_at','DESC')->paginate(6);
         }
 
         $sliders = Slider::all()->toArray();
         $ProductCategories = ProductCategories::where('active','1')->get()->toArray();
         $pinnedproducts = Product::where('show_home','on')->first();
         $view = 'front/index.twig';
-        return $this->view->render($response,$view,compact('products','sliders','ProductCategories','pinnedproducts'));
+        return $this->view->render($response,$view,compact('latestProducts', 'planners', 'accessories', 'stickersAndNotePads', 'sliders','ProductCategories','pinnedproducts'));
     }
     
     

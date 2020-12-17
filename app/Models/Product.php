@@ -24,6 +24,24 @@ class Product extends model{
    public function category(){
         return $this->belongsTo('\App\Models\ProductCategories','categoryID')->withDefault(['name'=> 'none']);
    }
+
+    public function planners(){
+        return $this->belongsTo('\App\Models\ProductCategories','categoryID')
+                    ->where('name', 'Planners')
+                    ->where('active', '1');
+    }
+
+    public function stickersAndNotePads(){
+        return $this->belongsTo('\App\Models\ProductCategories','categoryID')
+                    ->where('name', 'Stickers et note pads')
+                    ->where('active', '1');
+    }
+
+    public function accessories(){
+        return $this->belongsTo('\App\Models\ProductCategories','categoryID')
+                    ->where('name', 'Accessories')
+                    ->where('active', '1');
+    }
    
     public function currentColors(){
         return json_decode($this->colors);

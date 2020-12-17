@@ -24,116 +24,157 @@
       <p class="motiv text-amsterdam-four">Nous croyons en vous. Vous allez y arriver ..</p>
    </section>
 
-
-   <section class="section categories-list-section">
-      <div class="container">
-         <div class="app-heading">
-            <h3 class="heading-primary">اهم التصنيفات</h3>
-            <p class="heading-description">يمكنك الآن رؤية اهم التصنيفات لدينا</p>
-         </div>
-         <div class="categories-style-1 owl-carousel">
-         {%  for ProductCategory in ProductCategories %}
-            <div class="category-item">
-               <a href="/categories/{{ ProductCategory.slug }}" class="category-thumbnail">
-                  <img src="/uploads/categories/{{ProductCategory.image}}">
-               </a> 
-               <h3 class="category-details">
-                  <a href="{{ ProductCategory.slug }}" class="category-title">
-                  {{ ProductCategory.name }}
-                  </a>
-               </h3>
+   {% if latestProducts|length %}
+      <section class="section categories-list-section">
+         <div class="container">
+            <div class="app-heading">
+               <h3 class="heading-primary">Récemment ajoutés</h3>
             </div>
-         {% endfor %}
+            <div class="categories-style-1 owl-carousel">
+            {%  for product in latestProducts %}
+               <div class="category-item">
+                  <a href="/categories/{{ product.slug }}" class="category-thumbnail">
+                     <img src="{{ url.products }}{{product.thumbnail}}">
+                  </a> 
+                  <h3 class="category-details">
+                     <a href="{{ product.slug }}" class="category-title">
+                     {{ product.name }}
+                     </a>
+                  </h3>
+               </div>
+            {% endfor %}
+            </div>
          </div>
-      </div>
-   </section>
+      </section>
+   {% endif %}
 
 
    {% if options.show_home_video == 'on' %}
-   <section class="section">
-      <div class="container video-center">
-         <div class="app-heading">
-            <h3 class="heading-primary">    {{options.home_video_h1}}  </h3>
-            <p class="heading-description"> {{options.home_video_h3}}  </p>
-         </div>
-         
-         {{ options.home_video_link|video_framer|raw }}
+      <section class="section">
+         <div class="container video-center">
+            <div class="app-heading">
+               <h3 class="heading-primary">    {{options.home_video_h1}}  </h3>
+               <p class="heading-description"> {{options.home_video_h3}}  </p>
+            </div>
+            
+            {{ options.home_video_link|video_framer|raw }}
 
-      </div>
-   </section>
+         </div>
+      </section>
+   {% endif %}
+   {% if planners|length %}
+      <section class="section products-list-section section-I7upaLbva51pYIX2">
+         <div class="container">
+            <div class="app-heading">
+               <h3 class="heading-primary">Planners</h3>
+               <p class="heading-description"> آخر المنتوجات المميزة لأسفار </p>
+            </div>
+            <div class="products-grid">
+               {%  for product in planners %}
+                  <div class="product-item">
+                     <a class="product-thumbnail" href="{{ path_for('website.product',{ id : product.id}) }}">
+                     <img src="{{ url.products }}{{product.thumbnail}}">
+                     </a>
+                     <div class="product-details">
+                        <div class="product-info">
+                           <h3 class="product-title">
+                              <a href="{{ path_for('website.product',{ id : product.id}) }}">{{ product.name }}</a>
+                           </h3>
+                           <div class="product-price">
+                              <span class="currency-value before">
+                              <span class="value">{{ product.price }}</span><span class="currency">&nbsp;DH‏</span>
+                              </span>
+                              <span class="currency-value after">
+                              <span class="value">{{ product.discount }}</span><span class="currency">&nbsp;DH‏</span>
+                              </span>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               {% endfor %}
+            </div>
+            <div class="see-more">
+               <a href="#">Voir plus</a>
+            </div>
+         </div>
+      </section>
    {% endif %}
 
-   <section class="section products-list-section section-I7upaLbva51pYIX2">
-      <div class="container">
-         <div class="app-heading">
-            <h3 class="heading-primary">آخر المنتجات  </h3>
-            <p class="heading-description"> آخر المنتوجات المميزة لأسفار </p>
-         </div>
-         <div class="products-grid">
-            {%  for product in products %}
-            <div class="product-item">
-               <a class="product-thumbnail" href="{{ path_for('website.product',{ id : product.id}) }}">
-               <img src="{{ url.products }}{{product.thumbnail}}">
-               </a>
-               <div class="product-details">
-                  <div class="product-info">
-                     <h3 class="product-title">
-                        <a href="{{ path_for('website.product',{ id : product.id}) }}">{{ product.name }}</a>
-                     </h3>
-                     <div class="product-price">
-                        <span class="currency-value before">
-                        <span class="value">{{ product.price }}</span><span class="currency">&nbsp;DH‏</span>
-                        </span>
-                        <span class="currency-value after">
-                        <span class="value">{{ product.discount }}</span><span class="currency">&nbsp;DH‏</span>
-                        </span>
+   {% if accessories|length %}
+      <section class="section products-list-section section-I7upaLbva51pYIX2">
+         <div class="container">
+            <div class="app-heading">
+               <h3 class="heading-primary">Accessories</h3>
+            </div>
+            <div class="products-grid">
+               {%  for product in accessories %}
+                  <div class="product-item">
+                     <a class="product-thumbnail" href="{{ path_for('website.product',{ id : product.id}) }}">
+                     <img src="{{ url.products }}{{product.thumbnail}}">
+                     </a>
+                     <div class="product-details">
+                        <div class="product-info">
+                           <h3 class="product-title">
+                              <a href="{{ path_for('website.product',{ id : product.id}) }}">{{ product.name }}</a>
+                           </h3>
+                           <div class="product-price">
+                              <span class="currency-value before">
+                              <span class="value">{{ product.price }}</span><span class="currency">&nbsp;DH‏</span>
+                              </span>
+                              <span class="currency-value after">
+                              <span class="value">{{ product.discount }}</span><span class="currency">&nbsp;DH‏</span>
+                              </span>
+                           </div>
+                        </div>
                      </div>
                   </div>
-               </div>
+               {% endfor %}
             </div>
-            {% endfor %}
+            <div class="see-more">
+               <a href="#">Voir plus</a>
+            </div>
          </div>
-         <div class="see-more">
-            <a href="#">Voir plus</a>
-         </div>
-      </div>
-   </section>
+      </section>
+   {% endif %}
 
-   <section class="section products-list-section section-I7upaLbva51pYIX2">
-      <div class="container">
-         <div class="app-heading">
-            <h3 class="heading-primary">آخر المنتجات  </h3>
-            <p class="heading-description"> آخر المنتوجات المميزة لأسفار </p>
-         </div>
-         <div class="products-grid">
-            {%  for product in products %}
-            <div class="product-item">
-               <a class="product-thumbnail" href="{{ path_for('website.product',{ id : product.id}) }}">
-               <img src="{{ url.products }}{{product.thumbnail}}">
-               </a>
-               <div class="product-details">
-                  <div class="product-info">
-                     <h3 class="product-title">
-                        <a href="{{ path_for('website.product',{ id : product.id}) }}">{{ product.name }}</a>
-                     </h3>
-                     <div class="product-price">
-                        <span class="currency-value before">
-                        <span class="value">{{ product.price }}</span><span class="currency">&nbsp;DH‏</span>
-                        </span>
-                        <span class="currency-value after">
-                        <span class="value">{{ product.discount }}</span><span class="currency">&nbsp;DH‏</span>
-                        </span>
+   {% if stickersAndNotePads|length %}
+      <section class="section products-list-section section-I7upaLbva51pYIX2">
+         <div class="container">
+            <div class="app-heading">
+               <h3 class="heading-primary">Stickers et note pads</h3>
+               <p class="heading-description"> آخر المنتوجات المميزة لأسفار </p>
+            </div>
+            <div class="products-grid">
+               {%  for product in stickersAndNotePads %}
+               <div class="product-item">
+                  <a class="product-thumbnail" href="{{ path_for('website.product',{ id : product.id}) }}">
+                  <img src="{{ url.products }}{{product.thumbnail}}">
+                  </a>
+                  <div class="product-details">
+                     <div class="product-info">
+                        <h3 class="product-title">
+                           <a href="{{ path_for('website.product',{ id : product.id}) }}">{{ product.name }}</a>
+                        </h3>
+                        <div class="product-price">
+                           <span class="currency-value before">
+                           <span class="value">{{ product.price }}</span><span class="currency">&nbsp;DH‏</span>
+                           </span>
+                           <span class="currency-value after">
+                           <span class="value">{{ product.discount }}</span><span class="currency">&nbsp;DH‏</span>
+                           </span>
+                        </div>
                      </div>
                   </div>
                </div>
+               {% endfor %}
             </div>
-            {% endfor %}
+            <div class="see-more">
+               <a href="#">Voir plus</a>
+            </div>
          </div>
-         <div class="see-more">
-            <a href="#">Voir plus</a>
-         </div>
-      </div>
-   </section>
+      </section>
+   {% endif %}
+
    {% if options.footer_img == 'on' %}
    <section class="slider-container horizontal medium">
       <div class="slide slide-overlay"> <img src="/uploads/media/{{options.banner_footer}}"  class="desktop-image"> <span class="slider-caption">
