@@ -3,10 +3,10 @@
 <main class="page-wrapper">
    <section  class="owl-carousel owl-carousel2 hero">
       {% for item in sliders %}
-      <div class="slide">
-         <img class="" src="{{url.sliders}}{{item.image}}" alt="slider-image" />
-         <a href="{{ item.link }}" class="call-to-action">Découvrir</a>
-      </div>
+         <div class="slide">
+            <img class="" src="{{url.sliders}}{{item.image}}" alt="slider-image" />
+            <a href="{{ item.link }}" class="call-to-action">Découvrir</a>
+         </div>
       {% endfor %}
    </section>
  
@@ -33,7 +33,7 @@
             <div class="categories-style-1 owl-carousel">
             {%  for product in latestProducts %}
                <div class="category-item">
-                  <a href="/categories/{{ product.slug }}" class="category-thumbnail">
+                  <a href="{{ path_for('website.product',{ id : product.id}) }}" class="category-thumbnail">
                      <img src="{{ url.products }}{{product.thumbnail}}">
                   </a> 
                   <h3 class="category-details">
@@ -48,7 +48,6 @@
       </section>
    {% endif %}
 
-
    {% if options.show_home_video == 'on' %}
       <section class="section">
          <div class="container video-center">
@@ -62,18 +61,18 @@
          </div>
       </section>
    {% endif %}
+
    {% if planners|length %}
       <section class="section products-list-section section-I7upaLbva51pYIX2">
          <div class="container">
             <div class="app-heading">
                <h3 class="heading-primary">Planners</h3>
-               <p class="heading-description"> آخر المنتوجات المميزة لأسفار </p>
             </div>
             <div class="products-grid">
                {%  for product in planners %}
                   <div class="product-item">
                      <a class="product-thumbnail" href="{{ path_for('website.product',{ id : product.id}) }}">
-                     <img src="{{ url.products }}{{product.thumbnail}}">
+                        <img src="{{ url.products }}{{product.thumbnail}}">
                      </a>
                      <div class="product-details">
                         <div class="product-info">
@@ -142,7 +141,6 @@
          <div class="container">
             <div class="app-heading">
                <h3 class="heading-primary">Stickers et note pads</h3>
-               <p class="heading-description"> آخر المنتوجات المميزة لأسفار </p>
             </div>
             <div class="products-grid">
                {%  for product in stickersAndNotePads %}
@@ -176,10 +174,10 @@
    {% endif %}
 
    {% if options.footer_img == 'on' %}
-   <section class="slider-container horizontal medium">
-      <div class="slide slide-overlay"> <img src="/uploads/media/{{options.banner_footer}}"  class="desktop-image"> <span class="slider-caption">
-      </div>
-   </section>
+      <section class="slider-container horizontal medium">
+         <div class="slide slide-overlay"> <img src="/uploads/media/{{options.banner_footer}}"  class="desktop-image"> <span class="slider-caption">
+         </div>
+      </section>
    {% endif %} 
 </main>
 <!-- App footer -->
