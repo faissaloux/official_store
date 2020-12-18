@@ -73,13 +73,15 @@ class ProductsController extends Controller{
 
             
             
-            $content->discount       =  $post['discount'];
-            $content->categoryID       =  $post['category'];
-            $content->size       =  $post['size']  ?? '';
-            $content->color       =  $post['color'] ?? '';
-            $content->colors       =  json_encode($post['colors']) ?? '';
-            empty($post['line']) ? $content->line = '0'
-                                 : $content->line = '1';
+            $content->discount      =  $post['discount'];
+            $content->categoryID    =  $post['category'];
+            $content->size          =  $post['size']  ?? '';
+            $content->color         =  $post['color'] ?? '';
+            $content->colors        =  json_encode($post['colors']) ?? '';
+            empty($post['line'])    ? $content->line = '0'
+                                    : $content->line = '1';
+            empty($post['spiral'])  ? $content->spiral = '0'
+                                    : $content->spiral = '1';
             
             $content->description       =  $request->getParam('description');
                  
@@ -172,18 +174,20 @@ class ProductsController extends Controller{
                 $gallery  = $content->gallery;
             }
     
-            $content->thumbnail   =  $thumbnail;
-            $content->name   =  $post['name'];
-            $content->gallery     =  $gallery;
-            $content->price       =  $post['price'];
-            $content->discount       =  $post['discount'];
-            $content->categoryID       =  $post['category'];
-            $content->size       =  $post['size']  ?? '';
-            $content->color       =  $post['color'] ?? '';
-            $content->colors       =  $post['colors'] ? json_encode($post['colors']) : NULL;
-            empty($post['line']) ? $content->line = '0'
-                                 : $content->line = '1';
-            $content->description       =  $request->getParam('description');
+            $content->thumbnail     =  $thumbnail;
+            $content->name          =  $post['name'];
+            $content->gallery       =  $gallery;
+            $content->price         =  $post['price'];
+            $content->discount      =  $post['discount'];
+            $content->categoryID    =  $post['category'];
+            $content->size          =  $post['size']  ?? '';
+            $content->color         =  $post['color'] ?? '';
+            $content->colors        =  $post['colors'] ? json_encode($post['colors']) : NULL;
+            empty($post['line'])    ? $content->line = '0'
+                                    : $content->line = '1';
+            empty($post['spiral'])  ? $content->spiral = '0'
+                                    : $content->spiral = '1';
+            $content->description   =  $request->getParam('description');
             $content->price_2       =  $post['price_2'];
             
             if(empty($post['show_home'])){

@@ -111,16 +111,17 @@ $app->group('/admin', function ($container) use($app) {
 $app->post('/storeApi[/]', function ($request, $response, $args) {  
     
     $data = [
-        'name'  =>  $_POST['fullname'] ,
-        'tel'  =>  $_POST['phone'] ,
-        'adress'  =>  $_POST['address'] ,
-        'city'  =>  $_POST['city'] ,
-        'quantity' => $_POST['quantity'],
-        'price' =>  $_POST['price'],
-        'source' => '',
-        'colors' => $_POST['colors'] ? json_encode(explode(',', $_POST['colors'])) : NULL,
-        'line' => $_POST['line'],
-        'size' =>  $_POST['size'],
+        'name'      =>  $_POST['fullname'] ,
+        'tel'       =>  $_POST['phone'] ,
+        'adress'    =>  $_POST['address'] ,
+        'city'      =>  $_POST['city'] ,
+        'quantity'  => $_POST['quantity'],
+        'price'     =>  $_POST['price'],
+        'source'    => '',
+        'colors'    => $_POST['colors'] ? json_encode(explode(',', $_POST['colors'])) : NULL,
+        'line'      => $_POST['line'],
+        'spiral'    => $_POST['spiral'],
+        'size'      =>  $_POST['size'],
         'productID' => $_POST['idproduct'],
     ];
 

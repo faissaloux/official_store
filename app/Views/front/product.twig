@@ -43,8 +43,7 @@ class='product-single'
                      <h1 class="single-title"> {{ product.name }}  </h1>
                   </div>
                   <div class="product-section price-section">
-                     <h3 class="single-price"><span class="after currency-value"><span class="value"> {{ product.discount }} </span><span class="currency">&nbsp;DH‏</span></span> 
-                        <span class="before currency-value"><span class="value"> {{ product.price }} </span><span class="currency">&nbsp;DH‏</span></span>
+                     <h3 class="single-price"><span class="after currency-value"><span class="value"> {{ product.discount }} </span><span class="currency">&nbsp;DH‏</span></span>
                      </h3>
                   </div>
                   {%if product.colors|length %}
@@ -67,12 +66,22 @@ class='product-single'
                         </div>
                      {% endif %}
                   </div>
+                  <div class="spirals">
+                     {%if product.spiral %}
+                        <div class="spiral" data-spiral="1">
+                           Version avec spiral
+                        </div>
+                        <div class="spiral" data-spiral="0">
+                           Version sans spiral
+                        </div>
+                     {% endif %}
+                  </div>
                   <div class="quantity">
                      <h4>Quantité</h4>
                      <input type="number" placeholder="0" class="quantity-input"/>
                   </div>
                   <div class="product-section add-to-cart-section">
-                     <button type="button" data-size="{{product.size}}" data-colors data-quantity data-version data-price="{{ product.discount }}" data-product="{{product.id}}" class="button single-submit">
+                     <button type="button" data-size="{{product.size}}" data-colors data-quantity data-version data-spiral data-price="{{ product.discount }}" data-product="{{product.id}}" class="button single-submit">
                      Passer votre commande
                      </button>
                   </div>

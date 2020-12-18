@@ -111,7 +111,7 @@ $('#phoneAlert').hide();
         
     },
    success: function( response ) {
-           window.location.href = "/thank-you?products="+"{{current_categorie}}";
+           window.location.href = "/thank-you;
           },
     error:function(response){
  
@@ -153,6 +153,7 @@ $('.single-submit').click(function(){
   const price = $(this).attr('data-price');
   const colors = $(this).attr('data-colors');
   const line = $(this).attr('data-version');
+  const spiral = $(this).attr('data-spiral');
   const size = $(this).attr('data-size');
   
    
@@ -167,6 +168,7 @@ $('.single-submit').click(function(){
   $('#savecommand [name="price"]').val(price);
   $('#savecommand [name="colors"]').val(colors);
   $('#savecommand [name="line"]').val(line);
+  $('#savecommand [name="spiral"]').val(spiral);
   
   $('.cmd_wrapper').show();
   
@@ -315,6 +317,12 @@ $(".version").click(function(){
   $(".version").removeClass("active");
   $(this).addClass("active");
   $(".single-submit").attr("data-version", $(this).data('line'));
+})
+
+$(".spiral").click(function(){
+  $(".spiral").removeClass("active");
+  $(this).addClass("active");
+  $(".single-submit").attr("data-spiral", $(this).data('spiral'));
 })
 
 $(".quantity-input").keyup(function(){

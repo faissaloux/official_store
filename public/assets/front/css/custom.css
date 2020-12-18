@@ -454,20 +454,23 @@ p.thank-you-body {
     cursor: pointer;
 }
 
-.version.active{
+.version.active,
+.spiral.active{
     border: 2px solid#ffe4db;
     background-color: transparent;
     width: 400px;
     transition-duration: 0.4s;
 }
 
-.versions {
+.versions,
+.spirals {
     display: flex;
     justify-content: space-between;
     padding: 5px 0 10px 0;
 }
 
-.version {
+.version,
+.spiral {
     display: inline-block;
     background-color: #ffe4db;
     height: 40px;
