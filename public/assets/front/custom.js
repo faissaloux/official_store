@@ -111,7 +111,7 @@ $('#phoneAlert').hide();
         
     },
    success: function( response ) {
-           window.location.href = "/thank-you;
+           window.location.href = "/thank-you";
           },
     error:function(response){
  
