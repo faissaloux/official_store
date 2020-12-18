@@ -296,19 +296,19 @@ ul.list-preview {
 .categories-style-1  .owl-nav button.owl-prev {
     position: absolute;
     left: 0;
-    top: 37%;
+    top: 32%;
 }
 
 .categories-style-1 .owl-nav button.owl-next {
     position: absolute;
     right: 0;
-    top: 37%;
+    top: 32%;
 }
+
 .categories-style-1 .owl-nav.disabled {
     position: initial;
     top: 90px!important;
 }
-
 
 .categories-style-1 .owl-nav {
     display: inline-block !important;

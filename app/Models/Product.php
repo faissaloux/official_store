@@ -39,7 +39,7 @@ class Product extends model{
 
     public function accessories(){
         return $this->belongsTo('\App\Models\ProductCategories','categoryID')
-                    ->where('name', 'Accessories')
+                    ->where('name', 'Accessoires')
                     ->where('active', '1');
     }
    

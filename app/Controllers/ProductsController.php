@@ -50,38 +50,14 @@ class ProductsController extends Controller{
 
 
             if(!empty($_FILES['ProductThumbnail']['name'])){
+
                 $uploader   = new \App\Helpers\Uploader('start');
-               
-                /*
-                $uploader   =   new \App\Helpers\NewUploader();
-                $uploader->setDir($dir);
-                $uploader->setExtensions(['jpg','jpeg','png','gif']);  
-                $uploader->setMaxSize(4000);                       
-
-                if($uploader->uploadFile('ProductThumbnail')){      
-                    $image  =   $uploader->getUploadName(); //get uploaded file name, renames on upload//
-
-                }else{//upload failed
-                  $image=  $uploader->getMessage(); //get upload error message 
-                }
-
-                dd($image);
-
-
-
-
-
-
-
-
-                dd($dir);
-                */
                 $thumbnail   = $uploader->file($_FILES['ProductThumbnail'])->dir($dir)->save();
+
             }else {
                 $thumbnail   = '';
             }
             if(!empty($_FILES['galleryImages']['name'][0])){
-                dd($_FILES['galleryImages']);
                  // dd($_FILES['ProductThumbnail']);
                 $gallery     = $this->uploadGallery($_FILES['galleryImages']);
             }else {
@@ -106,10 +82,8 @@ class ProductsController extends Controller{
                                  : $content->line = '1';
             
             $content->description       =  $request->getParam('description');
-            
-            
                  
-            if($post['show_home'] == 'on'){
+            if(!empty($post['show_home'])){
                 $pinnedproducts = Product::where('show_home','on')->get();
                 foreach($pinnedproducts as $product ) {
                     $product->show_home = 'off';
