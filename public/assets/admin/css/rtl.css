@@ -1481,3 +1481,12 @@ div#add-color {
 .close-symbol{
     width: 100%;
 }
+
+.color {
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    border: 1px #000 solid;
+    margin-right: 10px;
+    border: none;
+}

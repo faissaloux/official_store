@@ -43,6 +43,11 @@ class NewOrders extends model{
     public function realproduct(){
         return $this->belongsTo('\App\Models\Product','productID')->select('name');
     }
+
+    public function currentColors(){
+        return json_decode($this->colors);
+    }
+
     
     
     

@@ -234,6 +234,7 @@ a.edit_airf {
                 <th><b>المنتوج</b></th>
                 <th><b>الكمية</b></th>
                 <th><b> الثمن</b></th>
+                <th><b> اللون</b></th>
                 <th><b> Ligne</b></th>
                 <th><b> Spiral</b></th>
                 <th><b> الحالة</b></th>
@@ -262,6 +263,15 @@ a.edit_airf {
              <td>{{item.realproduct.name}}</td> 
              <td>{{item.quantity}} </td>    
              <td>{{item.price}} </td>
+             <td>
+               {% if item.colors|length %}
+                  {%for color in item.currentColors() %}
+                     <div class="color" style="background-color:{{ color }};" data-color="{{ color }}"></div>
+                  {% endfor %}
+               {%else%}
+                  NULL
+               {% endif %}
+             </td>
              <td>{{ item.line ? 'Avec ligne': 'Sans ligne' }} </td>
              <td>{{ item.spiral ? 'Avec spiral': 'Sans spiral' }} </td>
              <td>
