@@ -305,6 +305,27 @@ ul.list-preview {
     top: 32%;
 }
 
+@media(max-width: 450px){
+    .categories-style-1  .owl-nav button.owl-prev,
+    .categories-style-1 .owl-nav button.owl-next {
+        top: 28%!important;
+    }
+}
+
+@media(max-width: 400px){
+    .categories-style-1  .owl-nav button.owl-prev,
+    .categories-style-1 .owl-nav button.owl-next {
+        top: 24%!important;
+    }
+}
+
+@media(max-width: 360px){
+    .categories-style-1  .owl-nav button.owl-prev,
+    .categories-style-1 .owl-nav button.owl-next {
+        top: 20%!important;
+    }
+}
+
 .categories-style-1 .owl-nav.disabled {
     position: initial;
     top: 90px!important;

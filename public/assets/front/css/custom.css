@@ -310,7 +310,7 @@ i.fas.fa-chart-area.fa-3x.red-text {
 a.call-to-action {
     position: absolute;
     top: 60%;
-    left: 45%;
+    left: calc(50% - 70px);
     background-color: #FAC5B3;
     color: #FFF;
     padding: 20px 40px;
@@ -459,8 +459,15 @@ p.thank-you-body {
 .spiral.active{
     border: 2px solid#ffe4db;
     background-color: transparent;
-    width: 400px;
+    width: 80%;
     transition-duration: 0.4s;
+}
+
+@media(max-width: 400px){
+    .version.active,
+    .spiral.active{
+        width: 60%!important;
+    }
 }
 
 .versions,
@@ -532,4 +539,10 @@ ul.list-preview {
     padding: 5px 15px !important;
     color: white;
     display: inline-block;
+}
+
+@media(max-width: 1124px){
+    .header-brand img{
+        max-height: 80%!important;
+    }
 }
