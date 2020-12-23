@@ -16747,3 +16747,50 @@ section#section-R4tF5IrjRDPe5uat {
         width: 100%;
     }
 }
+
+
+@media (max-width:1124px) {
+    .contact-us-container{
+        padding: 100px 15px!important;
+    }
+    .shipping-policies-body{
+        padding: 50px 15px!important;
+    }
+    .return-policies-container{
+        padding: 129px 15px!important;
+    }
+}
+
+@media (max-width:720px) {
+    .return-policies-container{
+        padding: 118px 15px!important;
+    }
+}
+
+@media (max-width:450px) {
+    .contact-us-container{
+        padding: 90px 15px!important;
+    }
+    .return-policies-container{
+        padding: 88px 15px!important;
+    }
+}
+
+@media (max-width:425px) {
+    .contact-us-container{
+        padding: 125px 15px!important;
+    }
+    .return-policies-container{
+        padding: 110px 15px!important;
+    }
+}
+
+ /* iPhoneX */
+@media (max-width:376px) {
+    .contact-us-container{
+        padding: 170px 15px!important;
+    }
+    .return-policies-container{
+        padding: 145px 15px!important;
+    }
+}
